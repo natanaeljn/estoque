@@ -1,31 +1,48 @@
 package entities;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class aleatorio {
-	private String name;
-	private double price;
+	private String nameOfProduct;
+	private int cod;
+	private double value;
 	private int quantity;
 
-	public aleatorio(String name, double price, int quantity) {
+	public aleatorio() {
 
-		this.name = name;
-		this.price = price;
+	}
+
+	public aleatorio(String nameOfProduct, int cod, double value, int quantity) {
+		super();
+		this.nameOfProduct = nameOfProduct;
+		this.cod = cod;
+		this.value = value;
 		this.quantity = quantity;
 	}
 
-	public String getName() {
-		return name;
+	public String getNameOfProduct() {
+		return nameOfProduct;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setNameOfProduct(String nameOfProduct) {
+		this.nameOfProduct = nameOfProduct;
 	}
 
-	public double getPrice() {
-		return price;
+	public int getCod() {
+		return cod;
 	}
 
-	public void setPrice(double price) {
-		this.price = price;
+	public void setCod(int cod) {
+		this.cod = cod;
+	}
+
+	public double getValue() {
+		return value;
+	}
+
+	public void setValue(double value) {
+		this.value = value;
 	}
 
 	public int getQuantity() {
@@ -36,21 +53,14 @@ public class aleatorio {
 		this.quantity = quantity;
 	}
 
-	public double totalValueInStock() {
-		return price * quantity;
-	}
-
-	public void addProduct(int newQuantity) {
-		this.quantity += newQuantity;
-	}
-
-	public void removeProduct(int remove) {
-		this.quantity -= remove;
+	public double total() {
+		return value * quantity;
 	}
 
 	public String toString() {
-		return "name:" + name + "\n" + "price:R$" + String.format("%.2f", price) + "\n" + "quantity in stock:"
-				+ quantity +"\n" + "total value in stock:R$" + String.format("%.2f", totalValueInStock());
+		return "name of product:" + nameOfProduct + ",code:" + cod + "\n" + "value:R$" + String.format("%.2f", value)
+				+ "\n" + "quantity:" + quantity + "\n" + "total:R$" + String.format("%.2f", total());
+
 	}
 
 }
